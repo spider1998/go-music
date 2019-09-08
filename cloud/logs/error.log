@@ -1,0 +1,7 @@
+{"level":"error","time":"2019-09-08T18:32:44+08:00","message":"json: cannot unmarshal number into Go struct field ArtList.id of type string"}
+{"level":"error","time":"2019-09-08T18:54:20+08:00","message":"fail to create art list: Invalid variable type: must be a pointer to a struct representing the model"}
+{"level":"error","time":"2019-09-08T19:37:32+08:00","message":"Error 1364: Field 'id' doesn't have a default value"}
+{"level":"error","time":"2019-09-08T19:40:35+08:00","message":"Error 1364: Field 'id' doesn't have a default value"}
+{"level":"error","time":"2019-09-08T19:59:52+08:00","message":"Get http://localhost:3000/artist/list?cat=1001&limit=1&offset=0: net/http: request canceled (Client.Timeout exceeded while awaiting headers)"}
+{"level":"error","time":"2019-09-08T20:47:38+08:00","message":"Error 1364: Field 'id' doesn't have a default value"}
+{"level":"error","time":"2019-09-08T21:19:06+08:00","message":"Error 1062: Duplicate entry '5781' for key 'UQE_art_list_user_id'"}
