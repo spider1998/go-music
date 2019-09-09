@@ -47,7 +47,12 @@ func (s *SumStatistic) CNSingerForMusic() (err error) {
 		"华语男歌手": mAlbumSum,
 		"华语女歌手": wAlbumSum,
 	}
-	err = chart.PieHandler("华语歌手音乐-专辑占比", "音乐", "专辑", outData, inData)
+	roseData := map[string]interface{}{
+		"男歌手": len(mSin),
+		"女歌手": len(wSin),
+	}
+	err = chart.PieHandler("Sum", "华语歌手音乐-专辑占比", "音乐", "专辑", outData,
+		inData, "华语歌手性别比例", "sum", roseData)
 	if err != nil {
 		err = errors.WithStack(err)
 		return

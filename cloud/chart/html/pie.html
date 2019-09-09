@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Awesome go-echarts</title>
+    <title>sum</title>
     <script src="http://chenjiandongx.com/go-echarts-assets/assets/echarts.min.js"></script>
     <link href="http://chenjiandongx.com/go-echarts-assets/assets/bulma.min.css" rel="stylesheet">
 </head>
@@ -40,23 +40,44 @@
 
     
 <div class="container">
-    <div class="item" id="vgkLOyGdqPQH"
+    <div class="item" id="PZOMnJbtnuAS"
          style="width:900px;height:500px;"></div>
 </div>
 <script type="text/javascript">
     "use strict";
-    let myChart_vgkLOyGdqPQH = echarts.init(document.getElementById('vgkLOyGdqPQH'), "white");
-    let option_vgkLOyGdqPQH = {
+    let myChart_PZOMnJbtnuAS = echarts.init(document.getElementById('PZOMnJbtnuAS'), "white");
+    let option_PZOMnJbtnuAS = {
+        title: {"text":"华语歌手性别比例",},
+        tooltip: {},
+        legend: {},
+        series: [
+        {"name":"sum","type":"pie","roseType":"radius","radius":["30%","75%"],"data":[{"name":"女歌手","value":2162},{"name":"男歌手","value":2358}],"label":{"show":true,"formatter":function (params) {return params.name + ' : ' + params.percent+'%';}},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+        ],
+        color: ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a","#6e7074","#546570","#c4ccd3"],
+    };
+    myChart_PZOMnJbtnuAS.setOption(option_PZOMnJbtnuAS);
+</script>
+
+    <br/>
+    
+<div class="container">
+    <div class="item" id="kDYtuPnHPdUu"
+         style="width:900px;height:500px;"></div>
+</div>
+<script type="text/javascript">
+    "use strict";
+    let myChart_kDYtuPnHPdUu = echarts.init(document.getElementById('kDYtuPnHPdUu'), "white");
+    let option_kDYtuPnHPdUu = {
         title: {"text":"华语歌手音乐-专辑占比",},
         tooltip: {},
         legend: {},
         series: [
-        {"name":"专辑","type":"pie","roseType":"area","radius":["50%","55%"],"data":[{"name":"华语女歌手","value":177436},{"name":"华语男歌手","value":190696}],"label":{"show":true,"formatter":function (params) {return params.name + ' : ' + params.percent+'%';}},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
-        {"name":"音乐","type":"pie","roseType":"radius","radius":["0%","45%"],"data":[{"name":"华语男歌手","value":32117},{"name":"华语女歌手","value":23290}],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+        {"name":"专辑","type":"pie","roseType":"area","radius":["50%","55%"],"data":[{"name":"华语男歌手","value":190696},{"name":"华语女歌手","value":177436}],"label":{"show":true,"formatter":function (params) {return params.name + ' : ' + params.percent+'%';}},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+        {"name":"音乐","type":"pie","roseType":"radius","radius":["0%","45%"],"data":[{"name":"华语女歌手","value":23290},{"name":"华语男歌手","value":32117}],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
         ],
         color: ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a","#6e7074","#546570","#c4ccd3"],
     };
-    myChart_vgkLOyGdqPQH.setOption(option_vgkLOyGdqPQH);
+    myChart_kDYtuPnHPdUu.setOption(option_kDYtuPnHPdUu);
 </script>
 
     <br/>

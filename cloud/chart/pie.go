@@ -48,11 +48,14 @@ func pieRoseArea() *charts.Pie {
 	return pie
 }
 
-func pieRoseRadius() *charts.Pie {
+func pieRoseRadius(title, name string, data map[string]interface{}) *charts.Pie {
 	pie := charts.NewPie()
-	pie.SetGlobalOptions(charts.TitleOpts{Title: "Pie-玫瑰图(Radius)"})
-	pie.Add("pie", genKvData(),
-		charts.LabelTextOpts{Show: true, Formatter: "{b}: {c}"},
+	pie.SetGlobalOptions(charts.TitleOpts{Title: title})
+	fn := `function (params) {
+		return params.name + ' : ' + params.percent+'%';
+}`
+	pie.Add(name, data,
+		charts.LabelTextOpts{Show: true, Formatter: charts.FuncOpts(fn)},
 		charts.PieOpts{Radius: []string{"30%", "75%"}, RoseType: "radius"},
 	)
 	return pie
@@ -87,16 +90,17 @@ func pieInPie(title, outName, inName string, outData, inData map[string]interfac
 	return pie
 }
 
-func PieHandler(title, outName, inName string, outData, inData map[string]interface{}) error {
+func PieHandler(pageTitle, title, outName, inName string, outData, inData map[string]interface{}, title2, roseName string, roseData map[string]interface{}) error {
 	page := charts.NewPage(orderRouters("pie")...)
+	page.PageTitle = pageTitle
 	page.Add(
-		/*pieBase(title, data),
-		pieShowLabel(),
-		pieLabelFormatter(),
-		pieRadius(),
-		pieRoseArea(),
-		pieRoseRadius(),
-		pieRoseAreaRadius(),*/
+		/*pieBase(title, data),*/
+		/*	pieShowLabel(),
+			pieLabelFormatter(),
+			pieRadius(),
+			pieRoseArea(),*/
+		pieRoseRadius(title2, roseName, roseData),
+		/*pieRoseAreaRadius(),*/
 		pieInPie(title, outName, inName, inData, outData),
 	)
 	f, err := os.Create(getRenderPath("pie.html"))
