@@ -4,7 +4,7 @@ import "strings"
 
 // snake string, XxYy to xx_yy , XxYY to xx_yy
 func SnakeString(s string) string {
-	s = strings.Replace(s,"ID","Id",-1)
+	s = strings.Replace(s, "ID", "Id", -1)
 	data := make([]byte, 0, len(s)*2)
 	j := false
 	num := len(s)

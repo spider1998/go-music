@@ -11,8 +11,6 @@ import (
 	"net/url"
 )
 
-
-
 func GetArtList(args map[string]string, urls string) (res entity.Artlists, err error) {
 	URL, err := url.Parse(urls)
 	if err != nil {

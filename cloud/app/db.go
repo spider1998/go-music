@@ -8,9 +8,9 @@ import (
 )
 
 // LoadDB 创建DB
-func LoadDB(dsn string) (x *xorm.Engine,err error) {
-	x, err = xorm.NewEngine("mysql",dsn)
-	if err != nil{
+func LoadDB(dsn string) (x *xorm.Engine, err error) {
+	x, err = xorm.NewEngine("mysql", dsn)
+	if err != nil {
 		log.Fatal("数据库连接失败:", err)
 		return
 	}
@@ -19,4 +19,3 @@ func LoadDB(dsn string) (x *xorm.Engine,err error) {
 	x.ShowExecTime(true)
 	return
 }
-

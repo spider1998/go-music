@@ -10,7 +10,7 @@ import (
 var (
 	Conf   Config         // 系统配置
 	Logger zerolog.Logger // 全局日志
-	DB     *xorm.Engine        // 全局 DB 实例
+	DB     *xorm.Engine   // 全局 DB 实例
 )
 
 //-----------------------------初始化配置----------------------------------------------------------------------
@@ -56,7 +56,6 @@ func Init() error {
 	if err != nil {
 		fmt.Println(err)
 	}
-
 
 	return nil
 }

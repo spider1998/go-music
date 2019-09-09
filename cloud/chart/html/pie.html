@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Awesome go-echarts</title>
+    <script src="http://chenjiandongx.com/go-echarts-assets/assets/echarts.min.js"></script>
+    <link href="http://chenjiandongx.com/go-echarts-assets/assets/bulma.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="select" style="margin-right:10px; margin-top:10px; position:fixed; right:10px;">
+    <select onchange="window.location.href=this.options[this.selectedIndex].value">
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/pie.html">Pie-(饼图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/bar3D.html">Bar3D-(3D 柱状图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/boxPlot.html">BoxPlot-(箱线图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/effectScatter.html">EffectScatter-(动态散点图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/funnel.html">Funnel-(漏斗图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/gauge.html">Gauge-仪表盘</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/geo.html">Geo-地理坐标系</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/graph.html">Graph-关系图</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/heatMap.html">HeatMap-热力图</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/kline.html">Kline-K 线图</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/line.html">Line-(折线图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/line3D.html">Line3D-(3D 折线图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/liquid.html">Liquid-(水球图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/map.html">Map-(地图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/overlap.html">Overlap-(重叠图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/parallel.html">Parallel-(平行坐标系)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/bar.html">Bar-(柱状图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/radar.html">Radar-(雷达图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/sankey.html">Sankey-(桑基图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/scatter.html">Scatter-(散点图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/scatter3D.html">Scatter-(3D 散点图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/surface3D.html">Surface3D-(3D 曲面图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/themeRiver.html">ThemeRiver-(主题河流图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/wordCloud.html">WordCloud-(词云图)</option>
+        <option value="file:///D:/sdkeji/sqms/cloud/chart/html/page.html">Page-(顺序多图)</option>
+    </select></div>
+
+    
+<div class="container">
+    <div class="item" id="vgkLOyGdqPQH"
+         style="width:900px;height:500px;"></div>
+</div>
+<script type="text/javascript">
+    "use strict";
+    let myChart_vgkLOyGdqPQH = echarts.init(document.getElementById('vgkLOyGdqPQH'), "white");
+    let option_vgkLOyGdqPQH = {
+        title: {"text":"华语歌手音乐-专辑占比",},
+        tooltip: {},
+        legend: {},
+        series: [
+        {"name":"专辑","type":"pie","roseType":"area","radius":["50%","55%"],"data":[{"name":"华语女歌手","value":177436},{"name":"华语男歌手","value":190696}],"label":{"show":true,"formatter":function (params) {return params.name + ' : ' + params.percent+'%';}},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+        {"name":"音乐","type":"pie","roseType":"radius","radius":["0%","45%"],"data":[{"name":"华语男歌手","value":32117},{"name":"华语女歌手","value":23290}],"label":{"show":false},"emphasis":{"label":{"show":false},},"markLine":{"label":{"show":false}},"markPoint":{"label":{"show":false}},},
+        ],
+        color: ["#c23531","#2f4554","#61a0a8","#d48265","#91c7ae","#749f83","#ca8622","#bda29a","#6e7074","#546570","#c4ccd3"],
+    };
+    myChart_vgkLOyGdqPQH.setOption(option_vgkLOyGdqPQH);
+</script>
+
+    <br/>
+<style>
+    .container {display: flex;justify-content: center;align-items: center;}
+    .item {margin: auto;}
+</style>
+</body>
+</html>
