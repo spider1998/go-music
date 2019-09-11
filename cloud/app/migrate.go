@@ -6,7 +6,7 @@ import (
 )
 
 func Migrate() error {
-	if err := DB.Sync2(new(entity.ArtList)); err != nil {
+	if err := DB.Sync2(new(entity.ArtList), new(entity.SingerTopList), new(entity.User)); err != nil {
 		Logger.Error().Msg("db migration error.")
 		return err
 	}

@@ -1,19 +1,24 @@
 package entity
 
+import (
+	"cloud/util"
+)
+
 const TableArtList = "art_list"
 
 //人员数据库实体
 type ArtList struct {
-	ID         string `json:"id" xorm:"pk"`
-	UserID     int    `json:"user_id"`
-	AlbumSize  int    `json:"album_size"`
-	MusicSize  int    `json:"music_size"`
-	PicUrl     string `json:"pic_url"`
-	Name       string `json:"name"`
-	AccountID  int    `json:"account_id"`
-	Cat        string `json:"cat"`
-	UpdateTime string `json:"updateTime" xorm:"updated"`
-	CreateTime string `json:"createTime" xorm:"created"`
+	ID         string    `json:"id" xorm:"pk"`
+	UserID     int       `json:"user_id"`
+	AlbumSize  int       `json:"album_size"`
+	MusicSize  int       `json:"music_size"`
+	PicUrl     string    `json:"pic_url"`
+	Name       string    `json:"name"`
+	AccountID  int       `json:"account_id"`
+	Cat        string    `json:"cat"`
+	City       string    `json:"city"`
+	UpdateTime util.Time `json:"updateTime" xorm:"updated"`
+	CreateTime util.Time `json:"createTime" xorm:"created"`
 }
 
 type Artlists struct {

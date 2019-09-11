@@ -3,7 +3,6 @@ package chart
 import (
 	"log"
 	"math"
-	"net/http"
 	"os"
 
 	"github.com/chenjiandongx/go-echarts/charts"
@@ -55,7 +54,7 @@ func line3DAutoRotate() *charts.Line3D {
 	return line3d
 }
 
-func line3DHandler(w http.ResponseWriter, _ *http.Request) {
+func Line3DHandler() {
 	page := charts.NewPage(orderRouters("line3D")...)
 	page.Add(
 		line3DBase(),
@@ -65,5 +64,5 @@ func line3DHandler(w http.ResponseWriter, _ *http.Request) {
 	if err != nil {
 		log.Println(err)
 	}
-	page.Render(w, f)
+	page.Render(f)
 }

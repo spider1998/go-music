@@ -3,13 +3,12 @@ package chart
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/chenjiandongx/go-echarts/charts"
+	"github.com/gobuffalo/packr"
 	"log"
 	"net/http"
 	"os"
 	"path"
-
-	"github.com/chenjiandongx/go-echarts/charts"
-	"github.com/gobuffalo/packr"
 )
 
 var sankeyNode = []charts.SankeyNode{

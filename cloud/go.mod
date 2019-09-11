@@ -2,9 +2,10 @@ module cloud
 
 require (
 	github.com/Go-SQL-Driver/mysql v1.4.1
-	github.com/chenjiandongx/go-echarts v0.0.0-20190728043558-70059cac90d5 // indirect
+	github.com/chenjiandongx/go-echarts v0.0.0-20190728043558-70059cac90d5
 	github.com/go-ozzo/ozzo-routing v2.1.4+incompatible
 	github.com/go-xorm/xorm v0.7.6
+	github.com/gobuffalo/packr v1.30.1
 	github.com/golang/gddo v0.0.0-20190904175337-72a348e765d2 // indirect
 	github.com/joho/godotenv v1.3.0
 	github.com/kelseyhightower/envconfig v1.4.0

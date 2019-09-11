@@ -2,7 +2,6 @@ package chart
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/chenjiandongx/go-echarts/charts"
@@ -130,12 +129,11 @@ func barDataZoom() *charts.Bar {
 	return bar
 }
 
-func barReverse() *charts.Bar {
+func barReverse(names []string, title, title1 string, data []int) *charts.Bar {
 	bar := charts.NewBar()
-	bar.SetGlobalOptions(charts.TitleOpts{Title: "Bar-翻转 XY 轴"})
-	bar.AddXAxis(nameItems).
-		AddYAxis("商家A", randInt()).
-		AddYAxis("商家B", randInt())
+	bar.SetGlobalOptions(charts.TitleOpts{Title: title})
+	bar.AddXAxis(names).
+		AddYAxis(title1, data, charts.ItemStyleOpts{Color: "#4a4a4a"})
 	bar.XYReversal()
 	return bar
 }
@@ -197,29 +195,15 @@ func barSize() *charts.Bar {
 	return bar
 }
 
-func barHandler(w http.ResponseWriter, _ *http.Request) {
+func BarHandler(names []string, title, title1, title2 string, xData, yData []int) {
 	page := charts.NewPage(orderRouters("bar")...)
 	page.Add(
-		barBase(),
-		barTitle(),
-		barShowLabel(),
-		barXYName(),
-		barColor(),
-		barSplitLine(),
-		barGap(),
-		barYAxis(),
-		barMultiYAxis(),
-		barMultiXAxis(),
-		barDataZoom(),
-		barReverse(),
-		barStack(),
-		barMark(),
-		barMarkCustom(),
-		barSize(),
+		barReverse(names, title, title1, xData),
+		barReverse(names, title, title2, yData),
 	)
 	f, err := os.Create(getRenderPath("bar.html"))
 	if err != nil {
 		log.Println(err)
 	}
-	page.Render(w, f)
+	page.Render(f)
 }

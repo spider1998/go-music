@@ -11,6 +11,20 @@ var ArtList ArtListService
 
 type ArtListService struct{}
 
+//top榜存入数据库
+func (a *ArtListService) SaveSingerTops(req []entity.SingerTopList) (err error) {
+	if len(req) == 0 {
+		return
+	}
+	_, err = app.DB.Table(new(entity.SingerTopList)).Insert(&req)
+	if err != nil {
+		err = errors.WithStack(err)
+		return
+	}
+	return
+}
+
+//存入歌手分类列表
 func (a *ArtListService) SaveArtList(req []entity.ArtList) (err error) {
 	if len(req) == 0 {
 		return

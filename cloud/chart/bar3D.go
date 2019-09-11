@@ -2,7 +2,6 @@ package chart
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/chenjiandongx/go-echarts/charts"
@@ -11,8 +10,8 @@ import (
 func genBar3dData() [][3]int {
 
 	data := [][3]int{
-		{0, 0, 5}, {0, 1, 1}, {0, 2, 0}, {0, 3, 0}, {0, 4, 0}, {0, 5, 0},
-		{0, 6, 0}, {0, 7, 0}, {0, 8, 0}, {0, 9, 0}, {0, 10, 0}, {0, 11, 2},
+		{0, 0, 100}, {0, 1, 80}, {0, 2, 0}, {0, 3, 0}, {0, 4, 0}, {0, 5, 0},
+		{0, 6, 0}, {0, 7, 43}, {0, 8, 0}, {0, 9, 0}, {0, 10, 0}, {0, 11, 2},
 		{0, 12, 4}, {0, 13, 1}, {0, 14, 1}, {0, 15, 3}, {0, 16, 4}, {0, 17, 6},
 		{0, 18, 4}, {0, 19, 4}, {0, 20, 3}, {0, 21, 3}, {0, 22, 2}, {0, 23, 5},
 		{1, 0, 7}, {1, 1, 0}, {1, 2, 0}, {1, 3, 0}, {1, 4, 0}, {1, 5, 0},
@@ -63,23 +62,23 @@ func bar3DBase() *charts.Bar3D {
 	return bar3d
 }
 
-func bar3DAutoRotate() *charts.Bar3D {
+func bar3DAutoRotate(title string, x, y []string, zData [][3]int) *charts.Bar3D {
 	bar3d := charts.NewBar3D()
 	bar3d.SetGlobalOptions(
-		charts.TitleOpts{Title: "Bar3D-自动旋转"},
+		charts.TitleOpts{Title: title},
 		charts.VisualMapOpts{
-			Range:      []float32{0, 30},
+			Range:      []float32{0, 100},
 			Calculable: true,
 			InRange:    charts.VMInRange{Color: rangeColor},
-			Max:        30,
+			Max:        100,
 		},
 		charts.Grid3DOpts{
-			BoxDepth:    80,
+			BoxDepth:    100,
 			BoxWidth:    160,
 			ViewControl: charts.ViewControlOpts{AutoRotate: true},
 		},
 	)
-	bar3d.AddXYAxis(hours, days).AddZAxis("bar3d", genBar3dData())
+	bar3d.AddXYAxis(x, y).AddZAxis("bar3d", zData)
 	return bar3d
 }
 
@@ -120,17 +119,14 @@ func bar3DShading() *charts.Bar3D {
 	return bar3d
 }
 
-func bar3DHandler(w http.ResponseWriter, _ *http.Request) {
+func Bar3DHandler(title string, x, y []string, zData [][3]int) {
 	page := charts.NewPage(orderRouters("bar3D")...)
 	page.Add(
-		bar3DBase(),
-		bar3DAutoRotate(),
-		bar3DRotateSpeed(),
-		bar3DShading(),
+		bar3DAutoRotate(title, x, y, zData),
 	)
 	f, err := os.Create(getRenderPath("bar3D.html"))
 	if err != nil {
 		log.Println(err)
 	}
-	page.Render(w, f)
+	page.Render(f)
 }

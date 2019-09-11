@@ -8,3 +8,17 @@ func ReverseStr(from string) string {
 	}
 	return string(runes)
 }
+
+func ReverseStringSlice(from []string) (result []string) {
+	for i, _ := range from {
+		result = append(result, from[len(from)-i-1])
+	}
+	return result
+}
+
+func ReverseIntSlice(from []int) (result []int) {
+	for i, _ := range from {
+		result = append(result, from[len(from)-i-1])
+	}
+	return result
+}

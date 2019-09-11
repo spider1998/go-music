@@ -2,7 +2,6 @@ package chart
 
 import (
 	"log"
-	"net/http"
 	"os"
 
 	"github.com/chenjiandongx/go-echarts/charts"
@@ -22,13 +21,13 @@ func mapShowLabel() *charts.Map {
 	return mc
 }
 
-func mapVisualMap() *charts.Map {
+func mapVisualMap(title, title2 string, mapData map[string]float32) *charts.Map {
 	mc := charts.NewMap("china")
 	mc.SetGlobalOptions(
-		charts.TitleOpts{Title: "Map-设置 VisualMap"},
-		charts.VisualMapOpts{Calculable: true},
+		charts.TitleOpts{Title: title, Subtitle: title2},
+		charts.VisualMapOpts{Calculable: true, Min: 0, Max: 615, Text: []string{"max", "min"}},
 	)
-	mc.Add("map", mapData)
+	mc.Add("city", mapData)
 	return mc
 }
 
@@ -65,19 +64,19 @@ func mapTheme() *charts.Map {
 	return mc
 }
 
-func mapHandler(w http.ResponseWriter, _ *http.Request) {
+func MapHandler(title, subTitle string, mapData map[string]float32) {
 	page := charts.NewPage(orderRouters("map")...)
 	page.Add(
-		mapBase(),
-		mapShowLabel(),
-		mapVisualMap(),
-		mapGuangdong(),
+		/*mapBase(),
+		mapShowLabel(),*/
+		mapVisualMap(title, subTitle, mapData),
+		/*mapGuangdong(),
 		mapShantou(),
-		mapTheme(),
+		mapTheme(),*/
 	)
 	f, err := os.Create(getRenderPath("map.html"))
 	if err != nil {
 		log.Println(err)
 	}
-	page.Render(w, f)
+	page.Render(f)
 }

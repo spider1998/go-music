@@ -1,22 +1,21 @@
 package handler
 
-import (
-	"cloud/app"
-	"cloud/statistic"
-	"fmt"
-)
-
-func Run() {
-	app.Logger.Info().Msg("start server...")
-	fmt.Println("Running...")
-	/*err := GetArtList()
+func Boot() {
+	/*	err := GetArtList()
+		if err != nil {
+			fmt.Println(err)
+		}
+	*/
+	/*err := GetSingerTops()
 	if err != nil {
 		fmt.Println(err)
 	}*/
-	err := statistic.Sum.CNSingerForMusic()
+
+	/*err := GetSingerCity()
 	if err != nil {
-		app.Logger.Error().Msg("error chart: " + err.Error())
-	}
+		fmt.Println(err)
+	}*/
+
 	/*var Server, Args, Count string
 	fmt.Printf("Please enter your server name: ")
 	fmt.Scanln(&Server)
